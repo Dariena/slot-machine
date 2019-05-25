@@ -1,8 +1,8 @@
-package model;
+package model.rounds;
 
-public class Free extends Round {
+public class Normal extends Round{
 
-    private int cost = 0;
+    private int cost = 10;
     private int win = 20;
 
     public int getRoundCost() {

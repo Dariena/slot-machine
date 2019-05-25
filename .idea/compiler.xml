@@ -12,10 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bonusgame" target="1.5" />
+      <module name="bonusgame" target="8" />
       <module name="framework" target="1.5" />
       <module name="netentTest" target="1.5" />
-      <module name="slotgame" target="1.5" />
+      <module name="slotgame" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
