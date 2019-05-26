@@ -28,7 +28,7 @@ public class GameController {
 
             if (player.getPurse() <= 0) {
                 player.replenishment();
-                System.out.println();
+
             }
 
             int spinResult = machine.spin(normalRound);
