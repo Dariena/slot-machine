@@ -1,0 +1,3 @@
+Slot Game
+List was created with 100 element, and we have 30% chance of winning, so than 30 elements are
+If we have 30% for win, and RTP is calculated by: (total win / total bet)

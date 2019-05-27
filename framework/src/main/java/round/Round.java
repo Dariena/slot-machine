@@ -1,4 +1,4 @@
-package model.rounds;
+package round;
 
 public abstract class Round {
 

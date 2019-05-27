@@ -1,6 +1,8 @@
 package model.rounds;
 
-public class Free extends Round {
+import round.Round;
+
+public class FreeRound extends Round {
 
     private int cost = 0;
     private int win = 20;

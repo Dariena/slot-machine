@@ -5,14 +5,13 @@ import java.util.Properties;
 
 public class View {
 
-    public static final String PRESS_TO_START = "PRESS_TO_START";
-    public static final String PURSE_UPDATED = "PURSE_UPDATED";
     public static final String LOSE_MESS = "LOSE_MESS";
     public static final String LOSE_PERC_MESS = "LOSE_PERC_MESS";
     public static final String WIN_MESS = "WIN_MESS";
     public static final String WIN_PERC_MESS = "WIN_PERC_MESS";
-    public static final String FREE_ROUND = "FREE_ROUND";
     public static final String GAME_END = "GAME_END";
+    public static  final String RTP = "RTP";
+
 
     private Properties prop = new Properties();
 
@@ -43,6 +42,10 @@ public class View {
 
     public void printWinPercent(double amount) {
         System.out.println(prop.getProperty(WIN_PERC_MESS) + amount);
+    }
+
+    public void printRTP(double amount) {
+        System.out.println(prop.getProperty(RTP) + amount);
     }
 
 }

@@ -1,4 +1,6 @@
-package model;
+package statistic;
+
+import view.View;
 
 public class Statistics {
     private double percentOfWin;
@@ -8,6 +10,7 @@ public class Statistics {
     private int countWin = 0;
     private int coinWin = 0;
     private int coinLose = 0;
+    private View view = new View();
 
     public double getPercentOfWin() {
         return percentOfWin;
@@ -25,19 +28,25 @@ public class Statistics {
         RTP = coinWin / coinBet;
     }
 
-    public void increaseCountLose(int coins) {
+
+    public int getCoinWin() {
+        return coinWin;
+    }
+
+    public int getCoinLose() {
+        return coinLose;
+    }
+
+    public void increaseCountLose() {
         countLose++;
-        coinLose-=coins;
         percentOfLose = (double)(countLose) / (countWin + countLose);
         percentOfWin = (double)(countWin) / (countWin + countLose);
     }
 
-    public void increaseCountWin(int coins) {
+    public void increaseCountWin() {
         countWin++;
-        coinWin+=coins;
         percentOfLose = (double) countLose / (countWin + countLose);
         percentOfWin = (double) countWin / (countWin + countLose);
-
     }
 
     public int getCountLose() {
@@ -46,5 +55,22 @@ public class Statistics {
 
     public int getCountWin() {
         return countWin;
+    }
+
+    public void addWinCoins(int coins) {
+        coinWin+=coins;
+    }
+
+    public void addLoseCoins(int coins) {
+        coinLose+=coins;
+    }
+
+    public void showAllStatistic() {
+        view.printMessage(View.GAME_END);
+        view.printLose(getCountLose());
+        view.printWin(getCountWin());
+        view.printWinPercent(getPercentOfWin() * 100);
+        view.printLosePercent(getPercentOfLose() * 100);
+        view.printRTP(getRTP());
     }
 }

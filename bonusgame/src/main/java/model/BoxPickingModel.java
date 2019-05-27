@@ -1,30 +1,31 @@
 package model;
 
-import model.rounds.Round;
-
 import java.util.*;
 
-public class BoxPickingModel {
+public class BoxPickingModel extends GameModel {
 
-    private List<GameResult> list = new ArrayList<GameResult>();
-    private List<Boolean> boxes = new ArrayList<Boolean>();
+    private List<GameResult> basicList;
+    private List<GameResult> boxes;
+    private int basicWinPercents = 10;
+    private int boxWinAmount = 4;
+
+    public int getBasicWinPercents() {
+        return basicWinPercents;
+    }
+
+    public int getBoxWinAmount() {
+        return boxWinAmount;
+    }
 
     public BoxPickingModel() {
-        list.add(GameResult.WIN);
-        for (int i = 0; i<=8; i++)
-            list.add(GameResult.LOSE);
-
-        boxes.add(false);
-        for (int i = 0; i <= 3; i++) {
-            boxes.add(true);
-        }
+        basicList = fillPercentageList(basicWinPercents);
+        boxes = fillPercentageList(boxWinAmount);
     }
 
     public boolean wonBonusRound() {
-        boolean result = list.get(random()).equals(GameResult.WIN);
+        boolean result = basicList.get(random(basicList)).equals(GameResult.WIN);
         if (result) {
             generateBoxes();
-            System.out.println(Arrays.toString(boxes.toArray()));
         }
         return result;
     }
@@ -34,16 +35,7 @@ public class BoxPickingModel {
     }
 
     public boolean checkBox(int index) {
-        return boxes.get(index - 1);
+        return boxes.get(index).equals(GameResult.WIN);
     }
 
-    private int random() {
-        Random random = new Random();
-        Collections.shuffle(list);
-        return random.nextInt(9);
-    }
-
-    private enum GameResult {
-        LOSE, WIN
-    }
 }

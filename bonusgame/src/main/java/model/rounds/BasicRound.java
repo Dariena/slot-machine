@@ -1,9 +1,11 @@
 package model.rounds;
 
-public class Normal extends Round{
+import round.Round;
+
+public class BasicRound extends Round {
 
     private int cost = 10;
-    private int win = 20;
+    private int win = 0;
 
     public int getRoundCost() {
         return cost;
